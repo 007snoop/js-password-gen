@@ -5,52 +5,29 @@
 // Date Started: 2025-02-16
 
 // import node modules here
+const process = require("process");
 const arguments = process.argv.slice(2);
-const readline = require("readline");
-const proc = require("process");
 
-// making readline interface
-const readInput = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-});
+// set up character pool for password
+const characterPool = "abcdefghijklmnopqrstuvwyxz"
+// set up default length if nothing is set
+const passwordDefaultLength = 8;
 
-function userCheckMessage() {
-    readInput.question("Is this Correct? Y/N: ", 
-        function (response) {
-            const userReponse = response.toUpperCase();
 
-            if (userReponse === "Y") {
-                console.log("Confirmed! Password length is set to: " + length);
-                readInput.close();
-            } else if (userReponse === "N") {
-                console.log("Let's try again.");
-                askPasswordLength();
-            } else {
-                console.log("Invalid response. Please enter either Y or N.");
-                userCheckMessage();
-            };
-        });
-    
+// random section using the Math.random module
+const randomIndex = Math.floor(Math.random() * characterPool.length);
+const randomCharacter = characterPool[randomIndex];
+
+let password = ""; // make the password a string, this will be changed later
+
+
+// use a loop to go over your pool
+
+for (let i = 0; i < passwordDefaultLength; i++) {
+
+    const randomIndex = Math.floor(Math.random() * characterPool.length);
+    password += characterPool[randomIndex];
 }
 
-// get user input for password length and feed back input
-function askPasswordLength() {
-	readInput.question(
-		"How long would you like this password to be? (Defaults to 8):  ",
-		function (length) {
-			const parLength = parseInt(length, 10);
 
-			//
-			if (isNaN(parLength)) {
-				console.log("not a Number.");
-				askPasswordLength();
-			} else if (
-                userCheckMessage()
-            );
-	readInput.close();
-		}
-	);
-}
-
-askPasswordLength();
+console.log(password);
