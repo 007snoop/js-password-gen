@@ -1,0 +1,18 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "Generates passwords consisting of atleast 8 characters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "password",
+    "generator",
+    "generate",
+    "pass",
+    "word"
+  ],
+  "author": "Colin Yetman",
+  "license": "ISC"
+}
