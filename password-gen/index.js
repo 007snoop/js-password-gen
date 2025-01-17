@@ -32,7 +32,7 @@ for (let i = 0; i < passwordDefaultLength; i++) {
     const randomIndex = Math.floor(Math.random() * characterPool.length);
     const randomCharacter = characterPool[randomIndex];
     
-    password += randomCharacter;
+    password += randomCharacter; // refactored "characterPool[randomIndex] to variable randomCharacter"
 }
 
 
