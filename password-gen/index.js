@@ -11,7 +11,9 @@ const arguments = process.argv.slice(2);
 // set up character pool for password
 
 // version 1.1.1 update: Add upper case to character pool
-const characterPool = "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWYXZ"
+// version 1.1.2 update: Add integers and special characters to pool
+
+const characterPool = "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWYXZ0123456789!@#$%^&*()_+{}[];':"
 // set up default length if nothing is set
 const passwordDefaultLength = 8;
 
