@@ -16,9 +16,26 @@ const arguments = process.argv.slice(2);
 const characterPool = "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWYXZ0123456789!@#$%^&*()_+{}[];':"
 // set up default length if nothing is set
 const passwordDefaultLength = 8;
+let passwordLength = passwordDefaultLength
 
 
+// check for --length flag
+const lengthIndex = arguments.indexOf("--length")
 
+// if "--length" is found retrieve value above -1
+
+if (lengthIndex != -1 && arguments[lengthIndex + 1]) {
+    let userLength = parseInt(arguments[lengthIndex + 1], 10)
+
+    if (!isNaN(userLength) && userLength >= passwordDefaultLength) {
+        passwordLenght = userLength
+    } else {
+
+        console.log("Invalid entry: please enter a value above default (8)");
+        process.exit(1)
+    }
+
+}
 // moved random values into for loop for cleaner code.
 
 
@@ -26,9 +43,8 @@ const passwordDefaultLength = 8;
 
 
 // use a loop to go over your pool
-
 let password = ""; // make the password a string, this will be changed later
-for (let i = 0; i < passwordDefaultLength; i++) {
+for (let i = 0; i < passwordLength; i++) {
     const randomIndex = Math.floor(Math.random() * characterPool.length);
     const randomCharacter = characterPool[randomIndex];
     
@@ -36,4 +52,4 @@ for (let i = 0; i < passwordDefaultLength; i++) {
 }
 
 
-console.log(password);
+console.log("Generated password: " + password);
