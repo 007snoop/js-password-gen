@@ -19,16 +19,17 @@ const passwordDefaultLength = 8;
 let passwordLength = passwordDefaultLength
 
 
+// version 1.2.0: added length checker
 // check for --length flag
 const lengthIndex = arguments.indexOf("--length")
 
 // if "--length" is found retrieve value above -1
 
-if (lengthIndex != -1 && arguments[lengthIndex + 1]) {
+if (lengthIndex !== -1 && arguments[lengthIndex + 1]) {
     let userLength = parseInt(arguments[lengthIndex + 1], 10)
 
     if (!isNaN(userLength) && userLength >= passwordDefaultLength) {
-        passwordLenght = userLength
+        passwordLength = userLength
     } else {
 
         console.log("Invalid entry: please enter a value above default (8)");
@@ -37,10 +38,6 @@ if (lengthIndex != -1 && arguments[lengthIndex + 1]) {
 
 }
 // moved random values into for loop for cleaner code.
-
-
-
-
 
 // use a loop to go over your pool
 let password = ""; // make the password a string, this will be changed later
@@ -51,5 +48,5 @@ for (let i = 0; i < passwordLength; i++) {
     password += randomCharacter; // refactored "characterPool[randomIndex] to variable randomCharacter"
 }
 
-
+console.log(arguments);
 console.log("Generated password: " + password);
