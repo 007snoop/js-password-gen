@@ -22,6 +22,7 @@ The Password Generator is a Command-Line Interface (CLI) application that genera
    ```bash
    git clone https://github.com/007snoop/js-password-gen.git
    cd js-password-gen
+   cd password-gen 
 2. Ensure you have [NodeJs](https://nodejs.org) installed on your machine.
 
 ## Usage
