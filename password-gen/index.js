@@ -88,5 +88,4 @@ for (let i = 0; i < passwordLength; i++) {
     password += randomCharacter; // refactored "characterPool[randomIndex] to variable randomCharacter"
 }
 
-console.log(arguments);
-console.log(`Generated password: ${password}`);
+console.log(`\nGenerated password: ${password}`);
