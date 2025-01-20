@@ -10,9 +10,16 @@ const arguments = process.argv.slice(2);
 
 
 // hot fix 1.4.1: add no input catch
-if (!arguments.includes("--length", "--caps", "--special")) {
-    console.log("Please use the command as follows ' node index.js <--length[defaults 8]|--caps|--special> '");
-    process.exit(0)
+// 1.5.2 fix for 1.4.1
+if (arguments.length === 0) { // cli MUST include some flag
+    console.log("Please use the command as follows:\n");
+    console.log("node index.js <--length [number]> [--caps] [--special] [--numbers]> ");
+    console.log("Flags:");
+    console.log("--length : Specify the length of the password (defaults to 8).");
+    console.log("--caps   : Include uppercase letters.");
+    console.log("--special: Include special characters.");
+    console.log("--numbers: Includes number characters.");
+    process.exit(1)
 }
 
 // set up character pool for password
@@ -52,9 +59,16 @@ if (arguments.includes("--caps")) {
     console.log("Upper Case Incldued for Password Generation.");
 }
 
+// version 1.5.0: add integer values to character pool as my dumbass forgot them before
+if (arguments.includes("--number")) {
+    let numberPool = "0123456789"
+    characterPool += numberPool;
+    console.log("Numbers Included for Password Generation");
+}
+
 // version 1.4.0 update: add special flag capture and append special to pool for generation
 if (arguments.includes("--special")) {
-    let characterPoolSpecial = "!@#$%^&*()_+-=[]{};':";
+    let characterPoolSpecial = "!@#$%^&*()_+[]{}|;:,.<>?";
     characterPool += characterPoolSpecial;
     console.log("Special Characters Included for Password Generation.");
 }
