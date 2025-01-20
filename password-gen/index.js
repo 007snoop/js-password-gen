@@ -35,7 +35,9 @@ let passwordLength = passwordDefaultLength
 
 // version 1.2.0: added length checker
 // check for --length flag
-const lengthIndex = arguments.indexOf("--length")
+// version 1.5.4: changed length to support multi inputs like other functions
+const lengthFlags = ["--l", "--len", "--length"]
+const lengthIndex = arguments.findIndex(flag => lengthFlags.includes(flag))
 
 // if "--length" is found retrieve value above -1
 
