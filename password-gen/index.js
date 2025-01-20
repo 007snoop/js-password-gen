@@ -11,14 +11,15 @@ const arguments = process.argv.slice(2);
 
 // hot fix 1.4.1: add no input catch
 // 1.5.2 fix for 1.4.1
+// 1.5.5 edits the help message a bit, makes commands clearer
 if (arguments.length === 0) { // cli MUST include some flag
     console.log("Please use the command as follows:\n");
     console.log("node index.js <--length [number]> [--caps] [--special] [--numbers]> ");
     console.log("Flags:");
-    console.log("--length : Specify the length of the password (defaults to 8).");
-    console.log("--caps   : Include uppercase letters.");
-    console.log("--special: Include special characters.");
-    console.log("--numbers: Includes number characters.");
+    console.log("--length, --len, --l                             : Specify the length of the password (defaults to 8).");
+    console.log("--caps, --capital, --capitals, --c               : Include uppercase letters.");
+    console.log("--special, --specials, --spec, --s               : Include special characters.");
+    console.log("--numbers, --number, --numb, --num, --n          : Includes number characters.");
     process.exit(1)
 }
 

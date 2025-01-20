@@ -1,6 +1,6 @@
 {
   "name": "password-generator",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Generates passwords consisting of atleast 8 characters.",
   "main": "index.js",
   "scripts": {
