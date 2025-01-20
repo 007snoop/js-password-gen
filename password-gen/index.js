@@ -13,7 +13,7 @@ const arguments = process.argv.slice(2);
 // version 1.1.1 update: Add upper case to character pool
 // version 1.1.2 update: Add integers and special characters to pool
 
-const characterPool = "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWYXZ0123456789!@#$%^&*()_+{}[];':"
+let characterPool = "abcdefghijklmnopqrstuvwyxz"
 // set up default length if nothing is set
 const passwordDefaultLength = 8;
 let passwordLength = passwordDefaultLength
@@ -27,17 +27,24 @@ const lengthIndex = arguments.indexOf("--length")
 
 if (lengthIndex !== -1 && arguments[lengthIndex + 1]) {
     let userLength = parseInt(arguments[lengthIndex + 1], 10)
-
+    
     if (!isNaN(userLength) && userLength >= passwordDefaultLength) {
         passwordLength = userLength
     } else {
-
+        
         console.log("Invalid entry: please enter a value above default (8)");
         process.exit(1)
     }
-
+    
 }
 // moved random values into for loop for cleaner code.
+// version 1.3.0 update: removed upper case from pool, add "--caps" flag for upper case
+if (arguments.includes("--caps")) {
+    let characterPoolUpper = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
+    characterPool += characterPoolUpper;
+    console.log("Upper Case Incldued for Password Generation.");
+}
+
 
 // use a loop to go over your pool
 let password = ""; // make the password a string, this will be changed later
