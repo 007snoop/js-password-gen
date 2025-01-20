@@ -8,6 +8,13 @@
 const process = require("process");
 const arguments = process.argv.slice(2);
 
+
+// hot fix 1.4.1: add no input catch
+if (!arguments.includes("--length", "--caps", "--special")) {
+    console.log("Please use the command as follows ' node index.js <--length[defaults 8]|--caps|--special> '");
+    process.exit(0)
+}
+
 // set up character pool for password
 
 // version 1.1.1 update: Add upper case to character pool
@@ -43,6 +50,13 @@ if (arguments.includes("--caps")) {
     let characterPoolUpper = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
     characterPool += characterPoolUpper;
     console.log("Upper Case Incldued for Password Generation.");
+}
+
+// version 1.4.0 update: add special flag capture and append special to pool for generation
+if (arguments.includes("--special")) {
+    let characterPoolSpecial = "!@#$%^&*()_+-=[]{};':";
+    characterPool += characterPoolSpecial;
+    console.log("Special Characters Included for Password Generation.");
 }
 
 
