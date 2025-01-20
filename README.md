@@ -32,7 +32,7 @@ To run the application, use the following command format:
 ## Flags
 
 + `--length`, `--len`, `--l`: Specify the length of the password (Defaults to 8).
-+ `--caps`, `capital`, `--capitals`, `--c`: Includes uppercase letters.
++ `--caps`, `--capital`, `--capitals`, `--c`: Includes uppercase letters.
 + `--special`, `--speicals`, `--spec`, `--s`: Includes special characters.
 + `--numbers`, `--number`, `--numb`, `--num`, `--n`: Includes number characters.
 
