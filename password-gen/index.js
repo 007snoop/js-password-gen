@@ -89,4 +89,4 @@ for (let i = 0; i < passwordLength; i++) {
 }
 
 console.log(arguments);
-console.log("Generated password: " + password);
+console.log(`Generated password: ${password}`);
